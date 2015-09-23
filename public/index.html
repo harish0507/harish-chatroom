@@ -31,7 +31,7 @@
             if (name == "" || name == null) { 
                 name = "Annonymous User";
             }
-            var socket = io.connect(window.location.href, { transports: ['websocket'], query: "name=" + name });
+            var socket = io.connect(window.location.href, { transports: ['xhr-polling'], query: "name=" + name });
             var log_message = function(message) {
                 var li = $("<li />").text(message);
                 $("#chat-log").append(li);
