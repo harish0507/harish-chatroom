@@ -1,0 +1,15 @@
+{
+  "name": "web_socket",
+  "version": "1.0.0",
+  "description": "Web Socket Programming",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Harish Mohan <harish@brandidea.com>",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "1.9.2",
+    "socket.io": "0.9.6"
+  }
+}

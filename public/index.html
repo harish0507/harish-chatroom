@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <style>
+        body { background-color: #66CCFF; font-family: cursive; font-weight: bold; }
+        ul { list-style: none; padding: 0; }
+        #chat-room { background-color: #CCFFFF; height: 500px; }
+        .margin-top { margin-top: 5px; }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Welcome To Harish's Chat Room!</h1>
+            <p>The ultimate annonymous chatting app...</p>
+        </div>
+        <section id="chat-room" class="img-rounded pre-scrollable">
+            <ul id="chat-log"></ul>
+        </section>
+        <input type="text" id="chat-box" class="form-control margin-top" placeholder="Type to chat..." />
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
