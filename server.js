@@ -10,6 +10,7 @@ chatter.set_sockets(chat_room.sockets);
 chat_room.sockets.on("connection", function(socket) {
     chatter.connect_chatter({
         socket: socket,
+        socket_id: socket.id,
         name: socket.handshake.query.name
     });
 });

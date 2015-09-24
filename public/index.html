@@ -9,37 +9,46 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <style>
-        body { background-color: #66CCFF; font-family: cursive; font-weight: bold; }
+        body { background-color: #66CCFF; font-family: cursive; font-weight: bold; color: #4C4C4C; }
         ul { list-style: none; padding: 0; }
         #chat-room { background-color: #CCFFFF; height: 325px; }
+        .margin { margin: 5px; padding: 5px; }
         .margin-top { margin-top: 5px; }
+        .color { background-color: #CCFFFF; }
+        .box { background-color: white; display: inline-block; }
+        .text-center { text-align: center; }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="jumbotron">
-            <h1>Welcome To Harish's Chat Room!</h1>
-            <p>The ultimate anonymous chatting app...</p>
-        </div>
+        <header class="text-center">
+            <div class="jumbotron color">
+                <h2>Welcome To Harish's Chat Room!</h2>
+                <p>- The ultimate anonymous chatting app...</p>
+            </div>
+        </header>
         <section id="chat-room" class="img-rounded pre-scrollable">
             <ul id="chat-log"></ul>
         </section>
         <input type="text" id="chat-box" class="form-control margin-top" placeholder="Type to chat..." />
-        <div class="row">
-            <p><center><span class="footertext">Copyright 2015</span></center></p>
-        </div>
+        <footer id="footer" class="row margin text-center">
+            <small></small>
+        </footer>
     </div>
     <script>
         $(function() {
+            var date = new Date();
+            $("#footer small").html("Copyright " + date.getFullYear());
             var name = prompt("What is your name?");
             if (name == "" || name == null) { 
                 name = "Anonymous User";
             }
             var socket = io.connect(window.location.href, { transports: ['xhr-polling'], query: "name=" + name }); //xhr-polling, websocket
             var log_message = function(message) {
-                var li = $("<li />").text(message);
+                var li = $("<li class='img-rounded box margin' /><br />").text(message);
                 $("#chat-log").append(li);
+                $("#chat-room").animate({ scrollTop: $("#chat-room").height() }, 'slow');
             };
             socket.on("entrance", function(data) {
                 log_message(data.message);
